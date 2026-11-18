@@ -1,0 +1,76 @@
+Day 2
+Sorting
+	->bubble sort 
+	->Insertion sort 
+	->Selection 
+	->Merge
+	->Quick 
+
+
+
+Bubble Sort 
+	Take two neighbouring numbers.
+	Compare them.
+	If the first number is bigger, swap them.
+	Repeat until the entire array is sorted.
+
+Insertion Sort
+	Pick one card.
+	Compare it with the cards already arranged.
+	Find its correct position.
+	Insert it there.
+	Repeat until all cards are arranged.
+
+
+	it works well in nearly sorted and best when using the insertion in the application 
+
+	Time and Space Complexity
+
+		Best Case	O(n)
+		Average Case	O(n²)
+		Worst Case	O(n²)
+
+	Space Complexity: O(1)
+
+Selection sort 
+	Find the smallest number.
+	Swap it with the first unsorted number.
+	Move to the next position.
+	Find the next smallest number.
+	Repeat until the array is sorted.
+
+	Time and Space Complexity:
+
+	Best Case	O(n²)
+	Average Case	O(n²)
+	Worst Case	O(n²)
+
+	Space Complexity: O(1)
+
+Merge Sort
+	Divide the array into two halves.
+	Continue dividing until each part contains only one element.
+	Compare and merge the smaller parts in sorted order.
+	Continue merging until you get one completely sorted array.
+
+	Time and Space Complexity:
+	Best Case	O(n log n)
+	Average Case	O(n log n)
+	Worst Case	O(n log n)
+
+	Space Complexity: O(n)
+
+	
+Quick Sort
+
+	Select one element as the pivot.
+	Place smaller elements on the left side.
+	Place larger elements on the right side.
+	Repeat the process for both sides.
+	Continue until the entire array is sorted.
+
+
+Trees 
+
+DFS
+BFS
