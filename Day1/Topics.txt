@@ -1,0 +1,177 @@
+Day 1: Searching Algorithms
+===========================
+
+1. Brute Force - Linear Search
+------------------------------
+
+Linear search is a simple brute-force searching algorithm. It checks each
+element one by one from the beginning of an array until the target is found
+or the array ends.
+
+Use linear search when:
+- The data is not sorted.
+- The array is small.
+- The data changes frequently.
+- Simplicity is more important than search speed.
+
+Example: Student Attendance Searching
+
+Suppose the attendance values for 10 days are:
+
+	attendance = [1, 0, 1, 1, 0, 1, 1, 1, 0, 1]
+
+If we want to find the first day with an attendance value of 0, compare the
+target with each value:
+
+	Day 1: 1 != 0
+	Day 2: 0 == 0 -> target found at index 1
+
+Note: Array indexes start at 0, but day numbers normally start at 1. Therefore,
+the day number is usually index + 1.
+
+Linear Search Algorithm
+
+1. Store the attendance values in an array.
+2. Select the attendance value to search for as the target.
+3. Start from index 0.
+4. Compare the current value with the target.
+5. If both values are equal, print the index or day number and stop.
+6. If they are different, move to the next index.
+7. If all values have been checked, print "Not Present in this array".
+
+Pseudocode:
+
+	found = false
+
+	for index from 0 to length - 1:
+		if attendance[index] == target:
+			print "Found at index " + index
+			found = true
+			break
+
+	if found == false:
+		print "Not Present in this array"
+
+Time complexity:
+- Best case: O(1), when the target is the first element.
+- Average case: O(n).
+- Worst case: O(n), when the target is last or absent.
+
+Space complexity:
+- O(1) extra space.
+
+
+2. Divide and Conquer - Binary Search
+-------------------------------------
+
+Binary search is a divide-and-conquer searching algorithm. It repeatedly
+divides a sorted array into two halves and removes the half that cannot
+contain the target.
+
+Important requirement:
+- The array must be sorted before binary search is used.
+- For an ascending array, the values must be arranged from smallest to largest.
+
+Example:
+
+	numbers = [10, 20, 30, 40, 50, 60, 70]
+	target = 50
+
+The indexes are:
+
+	index    0   1   2   3   4   5   6
+	value   10  20  30  40  50  60  70
+
+Binary Search Algorithm
+
+1. Sort the array in ascending order if it is not already sorted.
+2. Set left = 0.
+3. Set right = length - 1.
+4. Find the middle index:
+
+	   mid = left + (right - left) / 2
+
+5. Compare the middle value with the target.
+6. If array[mid] == target, print "Found at index" and stop.
+7. If target is smaller than array[mid], search the left half:
+
+	   right = mid - 1
+
+8. If target is greater than array[mid], search the right half:
+
+	   left = mid + 1
+
+9. Repeat while left <= right.
+10. If left becomes greater than right, print "Not Present in this array".
+
+Pseudocode:
+
+	left = 0
+	right = length - 1
+	found = false
+
+	while left <= right:
+		mid = left + (right - left) / 2
+
+		if numbers[mid] == target:
+			print "Found at index " + mid
+			found = true
+			break
+		else if target < numbers[mid]:
+			right = mid - 1
+		else:
+			left = mid + 1
+
+	if found == false:
+		print "Not Present in this array"
+
+Worked example for target 50:
+
+1. left = 0, right = 6, mid = 3, value = 40.
+   50 is greater than 40, so search the right half.
+2. left = 4, right = 6, mid = 5, value = 60.
+   50 is smaller than 60, so search the left half.
+3. left = 4, right = 4, mid = 4, value = 50.
+   Target found at index 4.
+
+Time complexity:
+- Best case: O(1), when the target is the middle element.
+- Average case: O(log n).
+- Worst case: O(log n).
+
+Space complexity:
+- O(1) extra space for an iterative implementation.
+
+
+3. Linear Search vs Binary Search
+---------------------------------
+
+Linear search:
+- Works with sorted or unsorted data.
+- Checks elements one by one.
+- Simple to implement.
+- Time complexity is O(n) in the worst case.
+
+Binary search:
+- Requires sorted data.
+- Removes half of the remaining search area after every comparison.
+- Faster for large sorted arrays.
+- Time complexity is O(log n) in the worst case.
+
+Decision rule:
+- Use linear search when the data is unsorted or the collection is small.
+- Use binary search when the data is sorted and fast repeated searching is
+  required.
+
+
+4. Important Terms
+------------------
+
+- Target: The value that must be found.
+- Index: The position of an element in an array, starting from 0.
+- Left: The first index in the current search range.
+- Right: The last index in the current search range.
+- Mid: The middle index in the current search range.
+- Sorted array: An array arranged in ascending or descending order.
+- Found: The target exists in the array.
+- Not present: The target does not exist in the array.
