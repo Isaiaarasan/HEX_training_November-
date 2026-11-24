@@ -103,3 +103,34 @@ CREATE TABLE course_track (
 
     UNIQUE (course_id, track_id)
 );
+
+
+
+use lms;
+describe learner;
+INSERT INTO user (username, password, role, is_active) VALUES 
+('arasan', 'arasan@123', 'LEARNER', 1),
+('kamal', 'kamal@123', 'LEARNER', 1),
+('kumar', 'kumar@123', 'INSTRUCTOR', 1),
+('mani', 'mani@123', 'INSTRUCTOR', 1);
+
+INSERT INTO contact (primary_contact, alternate_contact, main_email, secondary_email) VALUES 
+('9876543210', '9123456780', 'arasan@gmail.com', 'arasan9@gmail.com'),
+('9111222333', NULL, 'kamal@gmail.com', NULL),
+('9988776655', NULL, 'kumar@gmail.com', NULL),
+('9444555666', NULL, 'mani@gmail.com', NULL);
+
+INSERT INTO address (city, state, pincode) VALUES 
+('Chennai', 'Tamil Nadu', '600001'),
+('Coimbatore', 'Tamil Nadu', '641001');
+
+INSERT INTO learner (name, user_id, contact_id, address_id) VALUES 
+('Malar', 1, 1, 1),
+('Dharani', 2, 2, 1);
+
+INSERT INTO instructor (name, salary, user_id, address_id, contact_id) VALUES 
+('arasan', 75000.00, 3, 2, 3),
+('kumar', 95000.00, 4, 2, 4);
+
+SELECT * FROM learner;
+SELECT * FROM instructor;

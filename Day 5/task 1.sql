@@ -35,52 +35,75 @@
 -- DROP TABLE IF EXISTS user_details;
 -- DROP TABLE IF EXISTS roles;
 
-use cms;
-show tables;
+-- use cms;
+-- show tables;
 
-create table dept(
-dept_id int primary key auto_increment,
-dept_name Varchar(255)
-);
+-- create table dept(
+-- dept_id int primary key auto_increment,
+-- dept_name Varchar(255)
+-- );
 
-create table learning_track(
-track_id int primary key ,
-track_name varchar(255)
-);
+-- create table learning_track(
+-- track_id int primary key ,
+-- track_name varchar(255)
+-- );
 
-create table learner(
-learner_id int primary key,
-learner_name Varchar(255)
-);
+-- create table learner(
+-- learner_id int primary key,
+-- learner_name Varchar(255)
+-- );
 
-CREATE TABLE courses (
-    c_id INT PRIMARY KEY,
-    c_name VARCHAR(255),
-    dept_id INT,
-    track_id INT,
+-- CREATE TABLE courses (
+--     c_id INT PRIMARY KEY,
+--     c_name VARCHAR(255),
+--     dept_id INT,
+--     track_id INT,
 
-    FOREIGN KEY (dept_id)
-        REFERENCES dept(dept_id),
+--     FOREIGN KEY (dept_id)
+--         REFERENCES dept(dept_id),
 
-    FOREIGN KEY (track_id)
-        REFERENCES learning_track(track_id)
-);
+--     FOREIGN KEY (track_id)
+--         REFERENCES learning_track(track_id)
+-- );
 
-Create table Enrollment(
-learner_id int,
-c_id int,
-e_date date,
+-- Create table Enrollment(
+-- learner_id int,
+-- c_id int,
+-- e_date date,
 
-primary key(learner_id, c_id),
+-- primary key(learner_id, c_id),
 
-foreign key(learner_id)
-references Learner(learner_id),
+-- foreign key(learner_id)
+-- references Learner(learner_id),
 
-foreign key(c_id)
-references cources(c_id)
-);
+-- foreign key(c_id)
+-- references cources(c_id)
+-- );
 
 
-describe Enrollment;
+-- describe Enrollment;
 
-show tables;
+-- show tables;
+-- use hex_treaining;
+
+-- use cms;
+-- show tables;
+
+-- alter table user (id int primary key not null, username  varchar(255) not null, address varchar(255)not null );
+-- desc user;
+-- ALTER TABLE user
+-- MODIFY username VARCHAR(255) NOT NULL;
+
+-- Alter table user 
+-- modify id int primary key not null;
+
+-- Alter table user modify address varchar(255) not null;
+
+-- insert into user (id , username , address) values (1, "Arasan " , "Dharmapuri" );
+
+-- select * from user;
+
+
+
+	
+
