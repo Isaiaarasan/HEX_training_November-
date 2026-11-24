@@ -1,6 +1,5 @@
 create database LMS;
 use LMS;
--- 1. USER TABLE
 CREATE TABLE `user` (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(255),
@@ -10,7 +9,6 @@ CREATE TABLE `user` (
 );
 
 
--- 2. CONTACT TABLE
 CREATE TABLE contact (
     id INT PRIMARY KEY AUTO_INCREMENT,
     primary_contact VARCHAR(45),
@@ -20,7 +18,6 @@ CREATE TABLE contact (
 );
 
 
--- 3. ADDRESS TABLE
 CREATE TABLE address (
     id INT PRIMARY KEY AUTO_INCREMENT,
     city VARCHAR(45),
@@ -29,21 +26,18 @@ CREATE TABLE address (
 );
 
 
--- 4. DEPARTMENT TABLE
 CREATE TABLE department (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45)
 );
 
 
--- 5. TRACK TABLE
 CREATE TABLE track (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45)
 );
 
 
--- 6. LEARNER TABLE
 CREATE TABLE learner (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45),
@@ -57,7 +51,6 @@ CREATE TABLE learner (
 );
 
 
--- 7. INSTRUCTOR TABLE
 CREATE TABLE instructor (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45),
@@ -72,7 +65,6 @@ CREATE TABLE instructor (
 );
 
 
--- 8. COURSE TABLE
 CREATE TABLE course (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45),
@@ -85,7 +77,6 @@ CREATE TABLE course (
 );
 
 
--- 9. LEARNER_COURSE TABLE
 CREATE TABLE learner_course (
     id INT PRIMARY KEY AUTO_INCREMENT,
     learner_id INT,
@@ -102,7 +93,6 @@ CREATE TABLE learner_course (
 );
 
 
--- 10. COURSE_TRACK TABLE
 CREATE TABLE course_track (
     id INT PRIMARY KEY AUTO_INCREMENT,
     course_id INT,
