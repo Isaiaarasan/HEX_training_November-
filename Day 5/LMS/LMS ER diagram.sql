@@ -188,41 +188,79 @@
 -- USE lms_db_nov_2026;
 
 -- 1. SELECT
-SELECT * FROM learner;
+-- SELECT * FROM learner;
 
 -- 2. CARTESIAN PRODUCT
-SELECT * FROM learner, contact;
+-- SELECT * FROM learner, contact;
 
 -- 3. EQUI JOIN
-SELECT *
-FROM learner, contact
-WHERE learner.contact_id = contact.id;
+-- SELECT *
+-- FROM learner, contact
+-- WHERE learner.contact_id = contact.id;
 
 -- 4. EQUI JOIN USING ALIASES
-SELECT *
-FROM learner l, contact c
-WHERE l.contact_id = c.id;
+-- SELECT *
+-- FROM learner l, contact c
+-- WHERE l.contact_id = c.id;
 
 -- 5. SELECT SPECIFIC COLUMNS
-SELECT l.id, l.name, c.primary_contact, c.main_email
-FROM learner l, contact c
-WHERE l.contact_id = c.id;
+-- SELECT l.id, l.name, c.primary_contact, c.main_email
+-- FROM learner l, contact c
+-- WHERE l.contact_id = c.id;
 
 -- 6. THREE-TABLE JOIN
-SELECT l.id, l.name, c.primary_contact, c.main_email
-FROM learner l, contact c, `user` u
-WHERE l.user_id = u.id
-AND l.contact_id = c.id;
+-- SELECT l.id, l.name, c.primary_contact, c.main_email
+-- FROM learner l, contact c, `user` u
+-- WHERE l.user_id = u.id
+-- AND l.contact_id = c.id;
 
 -- 7. EQUI JOIN
-SELECT l.id, l.name, c.primary_contact, c.main_email
-FROM learner l, contact c
-WHERE l.contact_id = c.id;
+-- SELECT l.id, l.name, c.primary_contact, c.main_email
+-- FROM learner l, contact c
+-- WHERE l.contact_id = c.id;
 
 -- 8. FOUR-TABLE JOIN
-SELECT l.id, l.name, c.primary_contact, c.main_email,
-       u.username, u.is_active, a.city
-FROM learner l, contact c, `user` u, address a
-WHERE l.user_id = u.id
-AND l.contact_id = c.id
-AND l.address_id = a.id;
+-- SELECT l.id, l.name, c.primary_contact, c.main_email,
+--        u.username, u.is_active, a.city
+-- FROM learner l, contact c, `user` u, address a
+-- WHERE l.user_id = u.id
+-- AND l.contact_id = c.id
+-- AND l.address_id = a.id;
+
+
+
+/*
+1. JOIN (INNER JOIN)
+2. LEFT JOIN
+*/
+
+-- 1. INNER JOIN
+
+SELECT
+    l.id,
+    l.name,
+    c.primary_contact,
+    c.main_email,
+    u.username,
+    u.is_active,
+    a.city
+FROM learner l
+JOIN `user` u ON l.user_id = u.id
+JOIN contact c ON l.contact_id = c.id
+JOIN address a ON l.address_id = a.id;
+
+
+-- 2. LEFT JOIN
+
+SELECT
+    l.id,
+    l.name,
+    c.primary_contact,
+    c.main_email,
+    u.username,
+    u.is_active,
+    COALESCE(a.city, 'Not Provided') AS city
+FROM learner l
+JOIN `user` u ON l.user_id = u.id
+JOIN contact c ON l.contact_id = c.id
+LEFT JOIN address a ON l.address_id = a.id;	
