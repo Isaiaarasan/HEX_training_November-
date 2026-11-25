@@ -1,7 +1,7 @@
 
 SHOW DATABASES;
 
-CREATE DATABASE IF NOT EXISTS lms_db_nov_2026;
+CREATE DATABASE lms_db_nov_2026;
 
 USE lms_db_nov_2026;
 
@@ -760,7 +760,3 @@ GROUP BY l.id, l.name
 
 HAVING COUNT(e.course_id) > 1;
 
-
--- =====================================================
--- END OF COMPLETE MYSQL LMS TRAINING PROJECT
--- =====================================================
